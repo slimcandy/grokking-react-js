@@ -1,28 +1,20 @@
-import { template, tbody } from "./variables.js";
+import { template, tbody, candies } from "./variables.js";
 
 function disableCandy(name) {
-  const rows = tbody.find("tr");
+  const candy = candies.find((candy) => candy.name === name);
+  if (candy) {
+    candy.isDisabled = true;
+  }
 
-  rows.each(function () {
-    const row = $(this);
-    const nameCell = row.find("th");
-
-    if (nameCell.text() === name) {
-      nameCell.html(`<s>${name}</s>`);
-      row.find("button").prop("disabled", true);
-    }
-  });
+  renderTable(candies);
 }
 
 function disableAllCandies() {
-  const rows = tbody.find("tr");
-  rows.each(function () {
-    const row = $(this);
-    const nameCell = row.find("th");
-
-    nameCell.html(`<s>${nameCell.text()}</s>`);
-    row.find("button").prop("disabled", true);
+  candies.forEach((candy) => {
+    candy.isDisabled = true;
   });
+
+  renderTable(candies);
 }
 
 function renderTable(candies) {
