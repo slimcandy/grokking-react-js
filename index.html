@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конфетная лавка</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.sand.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Конфетная лавка</h1>
+    </header>
+    <main>
+      <table class="striped" style="max-width: 700px">
+        <caption>
+          Панель управления
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Название</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Действия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Список конфет -->
+        </tbody>
+      </table>
+    </main>
+
+    <template id="candy-row">
+      <tr>
+        <th scope="row"></th>
+        <td class="price"></td>
+        <td><button class="hide-btn">Скрыть позицию</button></td>
+      </tr>
+    </template>
+
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>
