@@ -1,4 +1,9 @@
-import { candies, tbody, template } from "./variables.js";
+import {
+  candies,
+  tbody,
+  template,
+  disableAllCandiesButton,
+} from "./variables.js";
 import { disableCandy, disableAllCandies } from "./actions.js";
 
 tbody.innerHTML = "";
@@ -15,6 +20,4 @@ candies.forEach((candy) => {
   tbody.appendChild(clone);
 });
 
-document
-  .getElementById("disable-all")
-  .addEventListener("click", disableAllCandies);
+disableAllCandiesButton.addEventListener("click", disableAllCandies);

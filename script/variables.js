@@ -23,5 +23,6 @@ const candies = [
 
 const tbody = document.querySelector("tbody");
 const template = document.getElementById("candy-row");
+const disableAllCandiesButton = document.getElementById("disable-all");
 
-export { candies, tbody, template };
+export { candies, tbody, template, disableAllCandiesButton };
