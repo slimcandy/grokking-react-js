@@ -6,18 +6,17 @@ import {
 } from "./variables.js";
 import { disableCandy, disableAllCandies } from "./actions.js";
 
-tbody.innerHTML = "";
+tbody.empty();
 
 candies.forEach((candy) => {
-  const clone = template.content.cloneNode(true);
+  const clone = $(template.prop("content").cloneNode(true));
+  const row = clone.find("tr");
 
-  clone.querySelector("th").textContent = candy.name;
-  clone.querySelector(".price").textContent = `${candy.price} ₽`;
-  clone.querySelector("button").addEventListener("click", () => {
-    disableCandy(candy.name);
-  });
+  row.find("th").text(candy.name);
+  row.find(".price").text(`${candy.price} ₽`);
+  row.find("button").on("click", () => disableCandy(candy.name));
 
-  tbody.appendChild(clone);
+  tbody.append(clone);
 });
 
-disableAllCandiesButton.addEventListener("click", disableAllCandies);
+disableAllCandiesButton.on("click", disableAllCandies);

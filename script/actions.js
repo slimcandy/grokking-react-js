@@ -1,29 +1,27 @@
 import { tbody } from "./variables.js";
 
 function disableCandy(name) {
-  const rows = tbody.querySelectorAll("tr");
+  const rows = tbody.find("tr");
 
-  rows.forEach((row) => {
-    const nameCell = row.querySelector("th");
+  rows.each(function () {
+    const row = $(this);
+    const nameCell = row.find("th");
 
-    if (nameCell.textContent === name) {
-      nameCell.innerHTML = `<s>${name}</s>`;
-
-      const button = row.querySelector("button");
-      button.disabled = true;
+    if (nameCell.text() === name) {
+      nameCell.html(`<s>${name}</s>`);
+      row.find("button").prop("disabled", true);
     }
   });
 }
 
 function disableAllCandies() {
-  const rows = tbody.querySelectorAll("tr");
+  const rows = tbody.find("tr");
+  rows.each(function () {
+    const row = $(this);
+    const nameCell = row.find("th");
 
-  rows.forEach((row) => {
-    const nameCell = row.querySelector("th");
-    nameCell.innerHTML = `<s>${nameCell.textContent}</s>`;
-
-    const button = row.querySelector("button");
-    button.disabled = true;
+    nameCell.html(`<s>${nameCell.text()}</s>`);
+    row.find("button").prop("disabled", true);
   });
 }
 
