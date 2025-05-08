@@ -1,6 +1,6 @@
 import { tbody } from "./variables.js";
 
-export function disableCandy(name) {
+function disableCandy(name) {
   const rows = tbody.querySelectorAll("tr");
 
   rows.forEach((row) => {
@@ -14,3 +14,17 @@ export function disableCandy(name) {
     }
   });
 }
+
+function disableAllCandies() {
+  const rows = tbody.querySelectorAll("tr");
+
+  rows.forEach((row) => {
+    const nameCell = row.querySelector("th");
+    nameCell.innerHTML = `<s>${nameCell.textContent}</s>`;
+
+    const button = row.querySelector("button");
+    button.disabled = true;
+  });
+}
+
+export { disableAllCandies, disableCandy };
