@@ -1,4 +1,9 @@
-import { template, tbody, candies } from "./variables.js";
+import {
+  template,
+  tbody,
+  candies,
+  disableAllCandiesButton,
+} from "./variables.js";
 
 function disableCandy(name) {
   const candy = candies.find((candy) => candy.name === name);
@@ -18,6 +23,8 @@ function disableAllCandies() {
 }
 
 function renderTable(candies) {
+  disableAllCandiesButton.on("click", disableAllCandies);
+
   tbody.empty();
 
   candies.forEach((candy) => {

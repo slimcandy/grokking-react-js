@@ -25,6 +25,4 @@ const tbody = $("tbody");
 const template = $("#candy-row");
 const disableAllCandiesButton = $("#disable-all");
 
-disableAllCandiesButton.on("click", disableAllCandies);
-
-export { candies, tbody, template };
+export { candies, tbody, template, disableAllCandiesButton };
